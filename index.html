@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ashanti D. Gholson — Learning Design Portfolio</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+:root {
+  --navy:   #1F3864;
+  --teal:   #2E75B6;
+  --gold:   #B8962E;
+  --ink:    #1C1C2E;
+  --mid:    #5A5A72;
+  --soft:   #9898A8;
+  --rule:   #E2E6ED;
+  --bg:     #FAFBFC;
+  --white:  #FFFFFF;
+  --card:   #F4F6F9;
+}
+
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink); }
+
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--rule);
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0 5vw; height: 60px;
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem; color: var(--navy); letter-spacing: 0.02em;
+}
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  font-size: 0.75rem; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--mid); text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--teal); }
+
+/* ── HERO ── */
+.hero {
+  background: var(--navy);
+  min-height: 88vh;
+  display: flex; align-items: center;
+  padding: 0 10vw;
+}
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 6rem;
+  align-items: center;
+  width: 100%;
+}
+.hero-tag {
+  display: inline-block;
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid rgba(184,150,46,0.4);
+  padding: 0.35rem 0.9rem;
+  border-radius: 2px;
+  margin-bottom: 2rem;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 5.5vw, 4.5rem);
+  color: var(--white);
+  line-height: 1.08;
+  margin-bottom: 1.75rem;
+  font-weight: 400;
+}
+.hero h1 em { font-style: italic; color: rgba(255,255,255,0.55); }
+.hero-bio {
+  font-size: 1rem; color: rgba(255,255,255,0.55);
+  line-height: 1.8; max-width: 520px;
+  margin-bottom: 2.5rem;
+}
+.hero-contact {
+  display: flex; align-items: center; gap: 1rem;
+}
+.btn-primary {
+  display: inline-block;
+  background: var(--teal);
+  color: var(--white);
+  text-decoration: none;
+  padding: 0.8rem 1.75rem;
+  font-size: 0.8rem; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  border-radius: 3px;
+  transition: background 0.2s;
+}
+.btn-primary:hover { background: #3A8AD0; }
+.hero-email {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.38);
+}
+
+.hero-stats {
+  display: flex; flex-direction: column; gap: 1px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.stat {
+  padding: 1.5rem 1.75rem;
+  background: rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.stat:last-child { border-bottom: none; }
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.25rem;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+.stat-label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.38);
+}
+
+/* ── SECTION SHARED ── */
+.section { padding: 6rem 10vw; }
+.section-label {
+  font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--teal); margin-bottom: 0.6rem;
+}
+.section-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.9rem, 3vw, 2.6rem);
+  color: var(--navy);
+  font-weight: 400;
+  margin-bottom: 0.4rem;
+}
+.section-sub {
+  font-size: 0.95rem;
+  color: var(--mid);
+  max-width: 520px;
+  line-height: 1.7;
+  margin-bottom: 3.5rem;
+}
+
+/* ── CAPABILITIES ROW ── */
+.capabilities {
+  background: var(--white);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 3rem 10vw;
+}
+.cap-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+}
+.cap-item {
+  padding: 1.75rem 1.5rem;
+  border-right: 1px solid var(--rule);
+  text-align: center;
+}
+.cap-item:last-child { border-right: none; }
+.cap-icon {
+  font-size: 1.6rem;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+.cap-name {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--navy);
+  line-height: 1.4;
+}
+
+/* ── PROJECTS ── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5px;
+  background: var(--rule);
+  border: 1.5px solid var(--rule);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.project {
+  background: var(--white);
+  padding: 2.5rem 2.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: background 0.2s;
+  cursor: default;
+}
+.project:hover { background: #F7FAFD; }
+.project-sector {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.project-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  color: var(--navy);
+  font-weight: 400;
+  line-height: 1.3;
+}
+.project-story {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.85rem;
+}
+.story-row {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 1rem;
+  align-items: baseline;
+}
+.story-key {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--soft);
+}
+.story-val {
+  font-size: 0.85rem;
+  color: var(--mid);
+  line-height: 1.6;
+}
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--rule);
+}
+.tag {
+  font-size: 0.65rem;
+  font-weight: 500;
+  padding: 0.2rem 0.55rem;
+  background: var(--card);
+  color: var(--navy);
+  border-radius: 2px;
+  letter-spacing: 0.04em;
+}
+
+/* ── PLATFORMS ── */
+.platforms-section {
+  background: var(--navy);
+  padding: 5rem 10vw;
+}
+.platforms-section .section-label { color: rgba(255,255,255,0.4); }
+.platforms-section .section-heading { color: var(--white); margin-bottom: 0.4rem; }
+.platforms-section .section-sub { color: rgba(255,255,255,0.4); margin-bottom: 3rem; }
+.platforms-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.plat-card {
+  background: rgba(255,255,255,0.04);
+  padding: 1.75rem;
+}
+.plat-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.plat-items li {
+  list-style: none;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.55);
+  padding: 0.3rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  line-height: 1.5;
+}
+.plat-items li:last-child { border-bottom: none; }
+
+/* ── INDUSTRIES ── */
+.ind-section { padding: 4.5rem 10vw; background: var(--white); border-top: 1px solid var(--rule); }
+.ind-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 2.5rem;
+}
+.ind-chip {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  padding: 0.55rem 1.2rem;
+  border: 1.5px solid var(--rule);
+  border-radius: 100px;
+  color: var(--navy);
+}
+
+/* ── CTA ── */
+.cta-section {
+  padding: 5rem 10vw;
+  text-align: center;
+}
+.cta-section .section-heading { margin-bottom: 1rem; }
+.cta-section .section-sub { margin: 0 auto 2rem; text-align: center; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--navy);
+  color: rgba(255,255,255,0.28);
+  text-align: center;
+  padding: 1.75rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">Ashanti D. Gholson</span>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#platforms">Platforms</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">Learning Design &amp; LMS Portfolio</div>
+      <h1>Designing learning<br><em>that moves people forward.</em></h1>
+      <p class="hero-bio">Senior Instructional Designer and LMS Business Analyst with 10-plus years of experience building enterprise learning solutions across healthcare, government, and Fortune 500 environments — on platforms including Workday, PeopleSoft ELM, Oracle Cloud HCM, and Cornerstone.</p>
+      <div class="hero-contact">
+        <a class="btn-primary" href="#contact">Get in Touch</a>
+        <span class="hero-email">ADG@BPBConsultants.com</span>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">400+</div>
+        <div class="stat-label">Hours Instruction Delivered</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">10+</div>
+        <div class="stat-label">ERP Implementations Supported</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">1,000+</div>
+        <div class="stat-label">Professionals Trained</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">130K</div>
+        <div class="stat-label">Global LMS Users Supported</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<div class="capabilities">
+  <div class="cap-row">
+    <div class="cap-item">
+      <span class="cap-icon">📋</span>
+      <div class="cap-name">Storyboards &amp; Design Docs</div>
+    </div>
+    <div class="cap-item">
+      <span class="cap-icon">💻</span>
+      <div class="cap-name">eLearning Development</div>
+    </div>
+    <div class="cap-item">
+      <span class="cap-icon">🎬</span>
+      <div class="cap-name">Video &amp; Tech Instruction</div>
+    </div>
+    <div class="cap-item">
+      <span class="cap-icon">📄</span>
+      <div class="cap-name">Quick Reference Guides &amp; Job Aids</div>
+    </div>
+    <div class="cap-item">
+      <span class="cap-icon">🖥️</span>
+      <div class="cap-name">LMS Administration</div>
+    </div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<section class="section" id="work">
+  <div class="section-label">Selected Projects</div>
+  <div class="section-heading">Work that teaches.</div>
+  <p class="section-sub">Each engagement below shows the problem, the solution, and what was built — the same way a hiring manager or client actually needs to see it.</p>
+
+  <div class="projects-grid">
+
+    <div class="project">
+      <div class="project-sector">Healthcare · PeopleSoft · Oracle Cloud · Workday</div>
+      <div class="project-title">HRIS Training Program — Clinical &amp; Enterprise Systems</div>
+      <div class="project-story">
+        <div class="story-row">
+          <div class="story-key">Challenge</div>
+          <div class="story-val">Healthcare organizations needed end-user training for HRIS and clinical IT systems — spanning PeopleSoft HCM, Oracle Cloud HCM, and Workday — for clinical staff, nursing, and HR professionals with varying technical comfort levels and shift-based schedules.</div>
+        </div>
+        <div class="story-row">
+          <div class="story-key">Solution</div>
+          <div class="story-val">Designed multi-modal training programs combining virtual instructor-led sessions, SCORM eLearning, technical instruction guides, and role-based job aids tailored to clinical, administrative, and HR audiences. Covered Core HCM, Benefits, Payroll, Talent Acquisition, ESS/MSS, and patient care IT workflows. Provided post-go-live help desk support and updated materials through subsequent system releases.</div>
+        </div>
+        <div class="story-row">
+          <div class="story-key">Result</div>
+          <div class="story-val">1,000+ healthcare and HR professionals trained across multiple client engagements. Training materials adapted and reused across system releases and new client rollouts.</div>
+        </div>
+      </div>
+      <div class="project-tags">
+        <span class="tag">Storyboards</span>
+        <span class="tag">vILT</span>
+        <span class="tag">SCORM eLearning</span>
+        <span class="tag">Tech Instruction Guides</span>
+        <span class="tag">Quick Reference Guides</span>
+        <span class="tag">Job Aids</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-sector">Global Enterprise · Cornerstone LMS</div>
+      <div class="project-title">Cornerstone IT Administration &amp; Analytics</div>
+      <div class="project-story">
+        <div class="story-row">
+          <div class="story-key">Challenge</div>
+          <div class="story-val">A global organization of 130,000+ employees across multiple business units needed reliable, consistent LMS operations, clean learner data synchronized across three integrated HR systems (Cornerstone, Workday HCM, and PeopleSoft), and executive-ready compliance and workforce development reporting.</div>
+        </div>
+        <div class="story-row">
+          <div class="story-key">Solution</div>
+          <div class="story-val">Serve as IT Cornerstone Administrator managing the full technical side of the platform — configuring Organization Units, Learning Objects, Channels, Pathways, and compliance curricula. Designed and maintain API integrations between Cornerstone and 20+ third-party systems, including data exchange specifications with Workday and PeopleSoft. Built Power BI dashboards surfacing training completion rates, compliance metrics, and L&amp;D KPIs for executive and operational leadership. Developed standard operating procedures and admin governance documentation to ensure platform consistency across global teams.</div>
+        </div>
+        <div class="story-row">
+          <div class="story-key">Result</div>
+          <div class="story-val">Single source of truth for learning data across 130,000+ global users. Leadership receives standardized monthly dashboards in place of ad-hoc data requests. Integration with 20+ third-party systems maintains learner data accuracy across all connected platforms.</div>
+        </div>
+      </div>
+      <div class="project-tags">
+        <span class="tag">LMS Admin</span>
+        <span class="tag">Power BI</span>
+        <span class="tag">API Integration</span>
+        <span class="tag">Compliance Reports</span>
+        <span class="tag">Admin SOPs</span>
+        <span class="tag">Data Governance</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-sector">Multi-Client · Oracle Cloud HCM</div>
+      <div class="project-title">Oracle Cloud HCM Training — 10+ Implementations</div>
+      <div class="project-story">
+        <div class="story-row">
+          <div class="story-key">Challenge</div>
+          <div class="story-val">Clients across healthcare, education, and government needed scalable end-user training ahead of Oracle Cloud HCM go-lives, with content validated by functional workstream leads before launch.</div>
+        </div>
+        <div class="story-row">
+          <div class="story-key">Solution</div>
+          <div class="story-val">Designed and developed eLearning using Articulate Storyline and UPK, delivered through LearnUpon and Oracle UPK Online. Partnered with Training Directors to review End User Training Plans, align production schedules, and validate curricula with SMEs before each go-live.</div>
+        </div>
+        <div class="story-row">
+          <div class="story-key">Result</div>
+          <div class="story-val">10+ implementations delivered on schedule. Training materials reused and adapted across client engagements, reducing design time for each successive rollout.</div>
+        </div>
+      </div>
+      <div class="project-tags">
+        <span class="tag">Articulate Storyline</span>
+        <span class="tag">Storyboards</span>
+        <span class="tag">ILT Guides</span>
+        <span class="tag">Quick Reference Guides</span>
+        <span class="tag">Training Plans</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-sector">State Government · PeopleSoft 9.2</div>
+      <div class="project-title">Union-Aware T&amp;L Training &amp; Change Program</div>
+      <div class="project-story">
+        <div class="story-row">
+          <div class="story-key">Challenge</div>
+          <div class="story-val">A state agency implementing PeopleSoft T&amp;L and Kronos needed training and change management that respected 13 distinct union contracts and pay rules — each requiring different configurations and learner communications.</div>
+        </div>
+        <div class="story-row">
+          <div class="story-key">Solution</div>
+          <div class="story-val">Conducted gap analysis with Payroll SMEs, developed role-based training materials for each union group, and delivered change management and communication support for the TAM rollout alongside the T&amp;L implementation.</div>
+        </div>
+        <div class="story-row">
+          <div class="story-key">Result</div>
+          <div class="story-val">Training content mapped 1:1 to each union group's pay rules. Change management plan adopted by agency leadership for the broader HCM rollout.</div>
+        </div>
+      </div>
+      <div class="project-tags">
+        <span class="tag">Gap Analysis</span>
+        <span class="tag">Job Aids</span>
+        <span class="tag">Quick Reference Guides</span>
+        <span class="tag">Change Mgmt Plan</span>
+        <span class="tag">ILT Materials</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-sector">Healthcare · PeopleSoft ELM</div>
+      <div class="project-title">LMS Infrastructure &amp; Reporting Overhaul</div>
+      <div class="project-story">
+        <div class="story-row">
+          <div class="story-key">Challenge</div>
+          <div class="story-val">A 15,000-employee health system had fragmented learner data, inconsistent course validation, and no standardized reporting for compliance or leadership.</div>
+        </div>
+        <div class="story-row">
+          <div class="story-key">Solution</div>
+          <div class="story-val">Administered PeopleSoft ELM end-to-end: standardized instructor onboarding, rebuilt learner profiles, validated all SCORM/UPK content, and integrated 20+ third-party systems. Built 200+ custom HCM reports and delivered executive-facing compliance dashboards.</div>
+        </div>
+        <div class="story-row">
+          <div class="story-key">Result</div>
+          <div class="story-val">Consistent, auditable LMS data across the enterprise. Leadership shifted from ad-hoc reporting requests to standardized monthly dashboards.</div>
+        </div>
+      </div>
+      <div class="project-tags">
+        <span class="tag">LMS Admin</span>
+        <span class="tag">Custom Reports</span>
+        <span class="tag">UPK Simulations</span>
+        <span class="tag">Integration Specs</span>
+        <span class="tag">Admin Guides</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-sector">Manufacturing · PeopleSoft ELM</div>
+      <div class="project-title">Global ELM Rollout — 140K Employees, 70 Countries</div>
+      <div class="project-story">
+        <div class="story-row">
+          <div class="story-key">Challenge</div>
+          <div class="story-val">Cargill needed to roll out PeopleSoft ELM 9.0 globally across 70 countries and 140,000 employees, including merger/acquisition employee integrations into the LMS ecosystem.</div>
+        </div>
+        <div class="story-row">
+          <div class="story-key">Solution</div>
+          <div class="story-val">Served as HCM Technical Developer and Change Management Practitioner. Designed training programs and job aids for technology adoption, developed communication plans, and facilitated 20+ stakeholder sessions covering M&amp;A integrations into the HR and LMS ecosystems.</div>
+        </div>
+        <div class="story-row">
+          <div class="story-key">Result</div>
+          <div class="story-val">Global ELM implementation delivered across 70 countries. Automated data-entry process eliminated manual processing for a key external provider interface, saving 200+ hours annually.</div>
+        </div>
+      </div>
+      <div class="project-tags">
+        <span class="tag">ELM Config</span>
+        <span class="tag">Training Materials</span>
+        <span class="tag">Job Aids</span>
+        <span class="tag">Comm Plans</span>
+        <span class="tag">Train-the-Trainer</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PLATFORMS -->
+<section class="platforms-section" id="platforms">
+  <div class="section-label">Technical Skills</div>
+  <div class="section-heading">Platforms &amp; Tools</div>
+  <p class="section-sub">Enterprise HR and learning technology environments, from authoring to integration.</p>
+  <div class="platforms-grid">
+    <div class="plat-card">
+      <div class="plat-title">LMS Platforms</div>
+      <ul class="plat-items">
+        <li>Cornerstone LMS / LXP</li>
+        <li>PeopleSoft ELM 8.0–9.2</li>
+        <li>LearnUpon</li>
+        <li>Oracle UPK Online</li>
+        <li>Taleo / Learn.com</li>
+      </ul>
+    </div>
+    <div class="plat-card">
+      <div class="plat-title">Authoring Tools</div>
+      <ul class="plat-items">
+        <li>Articulate Storyline 360</li>
+        <li>Adobe Captivate</li>
+        <li>Oracle UPK / EPAK</li>
+        <li>MadCap Flare</li>
+        <li>Adobe Director</li>
+      </ul>
+    </div>
+    <div class="plat-card">
+      <div class="plat-title">HRIS Platforms</div>
+      <ul class="plat-items">
+        <li>Workday HCM</li>
+        <li>Oracle Cloud HCM</li>
+        <li>PeopleSoft HCM 9.2</li>
+        <li>SAP HCM</li>
+        <li>Kronos / T&amp;L</li>
+      </ul>
+    </div>
+    <div class="plat-card">
+      <div class="plat-title">Analytics &amp; Integration</div>
+      <ul class="plat-items">
+        <li>Power BI</li>
+        <li>Tableau</li>
+        <li>SQL / SQR</li>
+        <li>API Integration Design</li>
+        <li>SharePoint Dashboards</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- AI IN ID -->
+<section class="section" style="background: var(--white); border-top: 1px solid var(--rule); padding: 5rem 10vw;">
+  <div class="section-label">Emerging Practice</div>
+  <div class="section-heading">AI in Learning Design</div>
+  <p class="section-sub">Actively integrating AI tools into instructional design and LMS workflows — building faster, working smarter, and staying ahead of where the field is heading.</p>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 0;">
+
+    <div style="border: 1.5px solid var(--rule); border-top: 3px solid var(--teal); border-radius: 4px; padding: 2rem;">
+      <div style="font-size: 1.6rem; margin-bottom: 1rem;">🤖</div>
+      <div style="font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.6rem;">Claude (Anthropic) — Content & Integration Design</div>
+      <p style="font-size: 0.85rem; color: var(--mid); line-height: 1.7;">Primary AI tool for instructional design work — used for drafting storyboard scripts, writing learning objectives, structuring course outlines, and designing learning analysis frameworks. Also used hands-on to build and troubleshoot API integrations connecting Cornerstone LMS and Workday HCM data to Power BI, accelerating data pipeline development and reducing manual build time.</p>
+    </div>
+
+    <div style="border: 1.5px solid var(--rule); border-top: 3px solid var(--teal); border-radius: 4px; padding: 2rem;">
+      <div style="font-size: 1.6rem; margin-bottom: 1rem;">💡</div>
+      <div style="font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.6rem;">Articulate AI — eLearning Content Generation</div>
+      <p style="font-size: 0.85rem; color: var(--mid); line-height: 1.7;">Actively using Articulate AI features within Storyline and Rise 360 to accelerate course content development — including AI-assisted quiz generation, content block suggestions, and course outline scaffolding. AI handles first-pass structure; instructional judgment, SME validation, and design refinement remain human-led.</p>
+    </div>
+
+    <div style="border: 1.5px solid var(--rule); border-top: 3px solid var(--teal); border-radius: 4px; padding: 2rem;">
+      <div style="font-size: 1.6rem; margin-bottom: 1rem;">🎬</div>
+      <div style="font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--teal); margin-bottom: 0.6rem;">Descript — Audio & Video Editing</div>
+      <p style="font-size: 0.85rem; color: var(--mid); line-height: 1.7;">Using Descript for AI-powered audio and video editing in training content production — including automatic transcription, voice-based script editing, and narration cleanup for eLearning voiceovers. Particularly useful for updating existing video training content without full reshoots, keeping course materials current with minimal production overhead.</p>
+    </div>
+
+    <div style="border: 1.5px solid var(--rule); border-top: 3px solid var(--gold); border-radius: 4px; padding: 2rem;">
+      <div style="font-size: 1.6rem; margin-bottom: 1rem;">🎥</div>
+      <div style="font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.3rem;">Synthesia — AI Video Presentation</div>
+      <div style="font-size: 0.65rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--soft); margin-bottom: 0.6rem;">Currently Exploring</div>
+      <p style="font-size: 0.85rem; color: var(--mid); line-height: 1.7;">Actively researching Synthesia for AI avatar-based video generation as a scalable alternative to filmed presenter videos in training content. The ability to generate professional presenter-style videos from a script — without studio recording — aligns directly with technical instruction and compliance training production needs.</p>
+    </div>
+
+  </div>
+
+  <div style="margin-top: 2rem; padding: 1.5rem 2rem; background: var(--card); border-radius: 4px; border-left: 3px solid var(--gold);">
+    <p style="font-size: 0.82rem; color: var(--mid); line-height: 1.7;"><strong style="color: var(--navy);">A note on this skill set:</strong> The tools marked as active are in regular use. Synthesia is under active evaluation. AI accelerates process — instructional design judgment, SME collaboration, and learner-centered thinking remain the core of this work and are not replaced by any of these tools.</p>
+  </div>
+</section>
+
+
+<section class="ind-section">
+  <div class="section-label">Sectors</div>
+  <div class="section-heading">Industries Served</div>
+  <div class="ind-row">
+    <span class="ind-chip">Healthcare</span>
+    <span class="ind-chip">Government &amp; Public Sector</span>
+    <span class="ind-chip">Financial Services</span>
+    <span class="ind-chip">Higher Education</span>
+    <span class="ind-chip">Transportation</span>
+    <span class="ind-chip">Manufacturing</span>
+    <span class="ind-chip">Food &amp; Beverage</span>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section cta-section" id="contact">
+  <div class="section-label">Get in Touch</div>
+  <div class="section-heading">Available for new engagements.</div>
+  <p class="section-sub">Open to consulting, contract implementations, and full-time opportunities in instructional design, LMS administration, and HR learning technology.</p>
+  <a class="btn-primary" href="mailto:ADG@BPBConsultants.com">ADG@BPBConsultants.com</a>
+</section>
+
+<footer>
+  &copy; 2026 Ashanti D. Gholson &nbsp;·&nbsp; BPB Consultants, LLC
+</footer>
+
+</body>
+</html>
