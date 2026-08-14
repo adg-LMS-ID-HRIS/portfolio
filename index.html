@@ -163,9 +163,20 @@ nav {
 }
 .cap-row {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 0;
 }
+.cap-item a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: color 0.2s;
+}
+.cap-item a:hover .cap-name { color: var(--teal); }
+.cap-item a:hover .cap-icon { transform: scale(1.1); }
+.cap-icon { transition: transform 0.2s; }
 .cap-item {
   padding: 1.75rem 1.5rem;
   border-right: 1px solid var(--rule);
@@ -345,6 +356,7 @@ footer {
   <span class="nav-logo">Ashanti D. Gholson</span>
   <ul class="nav-links">
     <li><a href="#work">Work</a></li>
+    <li><a href="#samples">Samples</a></li>
     <li><a href="#platforms">Platforms</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
@@ -387,24 +399,22 @@ footer {
 <div class="capabilities">
   <div class="cap-row">
     <div class="cap-item">
-      <span class="cap-icon">📋</span>
-      <div class="cap-name">Storyboards &amp; Design Docs</div>
+      <a href="#samples">
+        <span class="cap-icon">📋</span>
+        <div class="cap-name">Storyboards &amp; Design Docs</div>
+      </a>
     </div>
     <div class="cap-item">
-      <span class="cap-icon">💻</span>
-      <div class="cap-name">eLearning Development</div>
+      <a href="#samples">
+        <span class="cap-icon">💻</span>
+        <div class="cap-name">eLearning Development</div>
+      </a>
     </div>
     <div class="cap-item">
-      <span class="cap-icon">🎬</span>
-      <div class="cap-name">Video &amp; Tech Instruction</div>
-    </div>
-    <div class="cap-item">
-      <span class="cap-icon">📄</span>
-      <div class="cap-name">Quick Reference Guides &amp; Job Aids</div>
-    </div>
-    <div class="cap-item">
-      <span class="cap-icon">🖥️</span>
-      <div class="cap-name">LMS Administration</div>
+      <a href="#samples">
+        <span class="cap-icon">📄</span>
+        <div class="cap-name">Quick Reference Guides &amp; Job Aids</div>
+      </a>
     </div>
   </div>
 </div>
@@ -628,9 +638,9 @@ footer {
 </section>
 
 <!-- SAMPLE DOWNLOADS -->
-<section class="section" style="background: #F7F9FC; border-top: 1px solid var(--rule); padding: 4rem 10vw;">
+<section class="section" id="samples" style="background: #F7F9FC; border-top: 1px solid var(--rule); padding: 4rem 10vw;">
   <div class="section-label">Sample Work</div>
-  <div class="section-heading">Downloadable Deliverables</div>
+  <div class="section-heading">Portfolio Samples</div>
   <p class="section-sub">Real work product samples demonstrating instructional design deliverable quality and format.</p>
 
   <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.25rem; margin-top: 0;">
